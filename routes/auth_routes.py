@@ -19,7 +19,9 @@ def login(user:userlogin):
     
     response=JSONResponse(
         content={
-            "message":"Login successful"
+            "message":"Login successful",
+            "access_token": token["access_token"],
+            "refresh_token": token["refresh_token"]
         }
     )
     
