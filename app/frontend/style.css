@@ -1,0 +1,525 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:#0b1220;
+
+    color:#ffffff;
+
+}
+
+.container{
+
+    width:95%;
+
+    margin:20px auto;
+
+}
+
+/* ================= HEADER ================= */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:#111827;
+
+    border:1px solid #2b3445;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+}
+
+.logo-box{
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    width:70px;
+
+    height:70px;
+
+    background:#5b5cf0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:14px;
+
+    font-size:28px;
+
+}
+
+.logo-box h1{
+
+    font-size:38px;
+
+}
+
+.logo-box p{
+
+    color:#a0a8b7;
+
+    margin-top:6px;
+
+}
+
+.status{
+
+    background:#133d2a;
+
+    color:#45d483;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+}
+
+/* ================= MAIN ================= */
+
+.main-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+.left-column,
+
+.right-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/* ================= CARD ================= */
+
+.card{
+
+    background:#111827;
+
+    border:1px solid #2b3445;
+
+    border-radius:12px;
+
+    padding:20px;
+
+}
+
+.card h2{
+
+    margin-bottom:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:28px;
+
+}
+
+/* ================= TABS ================= */
+
+.tabs{
+
+    display:flex;
+
+    background:#111827;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    border:1px solid #2b3445;
+
+}
+
+.tab{
+
+    flex:1;
+
+    padding:18px;
+
+    border:none;
+
+    background:transparent;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+}
+
+.tab.active{
+
+    background:#5b5cf0;
+
+}
+
+/* ================= FORM ================= */
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+label{
+
+    font-size:18px;
+
+}
+
+input{
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#1b2433;
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+textarea{
+
+    width:100%;
+
+    min-height:140px;
+
+    background:#0d1727;
+
+    border:none;
+
+    border-radius:8px;
+
+    color:#79ff79;
+
+    padding:15px;
+
+    resize:none;
+
+}
+
+pre{
+
+    background:#0d1727;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    overflow:auto;
+
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:white;
+
+    margin-top:10px;
+
+    transition:.3s;
+
+}
+
+.btn i{
+
+    margin-right:10px;
+
+}
+
+.purple{
+
+    background:#5b5cf0;
+
+}
+
+.purple:hover{
+
+    background:#4b4ce5;
+
+}
+
+.blue{
+
+    background:#2563eb;
+
+}
+
+.blue:hover{
+
+    background:#1d4ed8;
+
+}
+
+.green{
+
+    background:#15803d;
+
+}
+
+.green:hover{
+
+    background:#166534;
+
+}
+
+.red{
+
+    background:#dc2626;
+
+}
+
+.red:hover{
+
+    background:#b91c1c;
+
+}
+
+/* ================= TABLE ================= */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+table td{
+
+    padding:15px;
+
+    border-bottom:1px solid #2b3445;
+
+    font-size:17px;
+
+}
+
+table td:first-child{
+
+    color:#b4bccc;
+
+    width:150px;
+
+}
+
+/* ================= FLOW ================= */
+
+.flow-list{
+
+    list-style:none;
+
+}
+
+.flow-list li{
+
+    padding:12px 0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-bottom:1px solid #2b3445;
+
+}
+
+.flow-list li::after{
+
+    content:"Success";
+
+    background:#14532d;
+
+    color:#4ade80;
+
+    padding:4px 12px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+}
+
+/* ================= HIDDEN ================= */
+
+.hidden{
+
+    display:none;
+
+}
+
+/* ================= SCROLLBAR ================= */
+
+textarea::-webkit-scrollbar,
+
+pre::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+textarea::-webkit-scrollbar-thumb,
+
+pre::-webkit-scrollbar-thumb{
+
+    background:#5b5cf0;
+
+    border-radius:20px;
+
+}
+
+/* ================= INPUT FOCUS ================= */
+
+input:focus{
+
+    outline:none;
+
+    border:1px solid #5b5cf0;
+
+}
+
+/* ================= CARD HOVER ================= */
+
+.card{
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    border-color:#5b5cf0;
+
+    box-shadow:0 0 10px rgba(91,92,240,.25);
+
+}
+
+/* ================= TAB HOVER ================= */
+
+.tab:hover{
+
+    background:#2a3344;
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .main-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        align-items:flex-start;
+
+    }
+
+    .logo-box{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .logo-box h1{
+
+        font-size:28px;
+
+    }
+
+    .tab{
+
+        font-size:16px;
+
+    }
+
+    .btn{
+
+        font-size:16px;
+
+    }
+
+    table td{
+
+        font-size:15px;
+
+    }
+
+}

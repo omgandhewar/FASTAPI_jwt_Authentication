@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT Authentication Demo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo-box">
+
+            <div class="logo">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <div>
+                <h1>JWT Authentication Demo</h1>
+                <p>Secure authentication using JSON Web Tokens</p>
+            </div>
+
+        </div>
+
+        <div class="status authenticated">
+
+            <i class="fa-regular fa-circle-check"></i>
+
+            <span>Authenticated</span>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-grid">
+
+        <!-- ================= LEFT ================= -->
+
+        <section class="left-column">
+
+            <!-- Tabs -->
+
+            <div class="tabs">
+
+                <button class="tab active" id="loginTab">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login
+
+                </button>
+
+                <button class="tab" id="signupTab">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Signup
+
+                </button>
+
+            </div>
+
+
+            <!-- Login Card -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login
+
+                </h2>
+
+                <form id="loginForm">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="test@example.com"
+                    >
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="********"
+                    >
+
+                    <button class="btn purple">
+
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+
+                        Login
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- Signup Card -->
+
+            <div class="card hidden" id="signupCard">
+
+                <h2>
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Signup
+
+                </h2>
+
+                <form id="signupForm">
+
+                    <label>Name</label>
+
+                    <input
+                        type="text"
+                        id="signupName"
+                        placeholder="John Doe"
+                    >
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                    >
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="signupPassword"
+                    >
+
+                    <button class="btn purple">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Signup
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    Actions
+
+                </h2>
+
+                <button class="btn blue" id="currentUserBtn">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Get Current User
+
+                </button>
+
+                <button class="btn green" id="payloadBtn">
+
+                    <i class="fa-solid fa-key"></i>
+
+                    Show JWT Payload
+
+                </button>
+
+                <button class="btn red" id="logoutBtn">
+
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                    Logout
+
+                </button>
+
+            </div>
+
+
+            <!-- Flow -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-regular fa-clipboard"></i>
+
+                    Authentication Flow
+
+                </h2>
+
+                <ul class="flow-list">
+
+                    <li>1. User Login</li>
+
+                    <li>2. Credentials Verified</li>
+
+                    <li>3. Access Token Generated</li>
+
+                    <li>4. Refresh Token Generated</li>
+
+                    <li>5. Stored in Cookies</li>
+
+                    <li>6. Protected Route Accessed</li>
+
+                    <li>7. JWT Verified</li>
+
+                    <li>8. User Returned</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= RIGHT ================= -->
+
+        <section class="right-column">
+
+            <!-- User -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Current User
+
+                </h2>
+
+                <table>
+
+                    <tr>
+
+                        <td>ID</td>
+
+                        <td id="userId">-</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Name</td>
+
+                        <td id="userName">-</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Email</td>
+
+                        <td id="userEmail">-</td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+            <!-- Access Token -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-key"></i>
+
+                    Access Token
+
+                </h2>
+
+                <textarea
+                    id="accessToken"
+                    readonly
+                ></textarea>
+
+            </div>
+
+
+            <!-- Refresh Token -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-rotate"></i>
+
+                    Refresh Token
+
+                </h2>
+
+                <textarea
+                    id="refreshToken"
+                    readonly
+                ></textarea>
+
+            </div>
+
+
+            <!-- JWT -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-code"></i>
+
+                    JWT Payload
+
+                </h2>
+
+                <pre id="payload"></pre>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Protected Response -->
+
+    <section class="card">
+
+        <h2>
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Protected Route Response
+
+        </h2>
+
+        <pre id="protectedResponse"></pre>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
